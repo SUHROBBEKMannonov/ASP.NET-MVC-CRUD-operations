@@ -1,0 +1,54 @@
+﻿@model FirstModel
+
+<form method="post">
+	<div class="border  p-3 mt-4">	
+		<div row pb-2>
+			<h2 class="text-primary"> Add  User</h2>
+			</div>
+			<hr />
+			<div asp-validation-summary="All"></div>
+			<div class="mb-3">
+				<label > First Name
+				<input asp-for="FirstName" class="form-control" placeholder="Alberto" />	
+				</label>
+				<span asp-validation-for="FirstName"  name="First Name" class="text-danger"></span>
+			</div>
+			<div class="mb-3" >
+				<label > Last Name:
+				<input asp-for="LastName" class="form-control" placeholder="Walker" />	
+				</label>
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+				<div class="mb-3" >
+					<label > Email:
+				<input asp-for="Email" class="form-control-email" placeholder="example@mail.ru" />	
+				</label>
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="mb-3" >
+				<label > Birth of date:
+				<input asp-for="BirthDate" type="date"  class="form-control" placeholder="Birth of date" />	
+					<span asp-validation-for="BirthDate" class="text-danger"></span>
+				</label>
+			</div>
+
+			<div class="mb-3" >
+				<label > Phone number: </br>+998
+				<input asp-for="PhoneNumber" type="tel" maxlength="9" placeholder="00-000-00-00" class="form-control-phonenumber" placeholder="Phone number" />	
+				</label>
+					<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+			</div>
+		
+			<button type="submit" onclick="return confirm('Are you sure you want to update this record?')" class="btn  btn-outline-success" style="width=100px"> Submit </button>
+			<a asp-controller="FirstModel" asp-action="ListOfUsers" class="btn btn-outline-secondary" style="width=150px"> Back to list </a>
+		</div>
+	</div>
+
+</form>
+@section Scripts{
+
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+
+	}
+}
